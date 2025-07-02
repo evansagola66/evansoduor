@@ -4,6 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
   ExternalLink,
   Github,
   Code2,
@@ -20,6 +26,7 @@ interface Skill {
   icon: React.ReactNode;
   category: string;
   level: number;
+  description: string;
 }
 
 interface Project {
@@ -37,117 +44,243 @@ const ProjectsPage = () => {
   const skills: Skill[] = [
     {
       name: "HTML5",
-      icon: <Code2 className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+          className="h-6 w-6"
+          alt="HTML5"
+        />
+      ),
       category: "Frontend",
       level: 95,
+      description:
+        "Semantic markup language for structuring web content with modern HTML5 features and accessibility standards.",
     },
     {
       name: "CSS3",
-      icon: <Palette className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+          className="h-6 w-6"
+          alt="CSS3"
+        />
+      ),
       category: "Frontend",
       level: 90,
+      description:
+        "Advanced styling with CSS3 features including flexbox, grid, animations, and responsive design principles.",
     },
     {
       name: "JavaScript",
-      icon: <Code2 className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+          className="h-6 w-6"
+          alt="JavaScript"
+        />
+      ),
       category: "Frontend",
       level: 92,
+      description:
+        "Modern JavaScript ES6+ with expertise in DOM manipulation, async programming, and functional programming concepts.",
     },
     {
       name: "React",
-      icon: <Code2 className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+          className="h-6 w-6"
+          alt="React"
+        />
+      ),
       category: "Frontend",
       level: 88,
+      description:
+        "Component-based UI library with hooks, context API, and modern React patterns for building interactive applications.",
     },
     {
       name: "Bootstrap",
-      icon: <Palette className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+          className="h-6 w-6"
+          alt="Bootstrap"
+        />
+      ),
       category: "Frontend",
       level: 85,
+      description:
+        "Responsive CSS framework for rapid UI development with pre-built components and utility classes.",
     },
     {
       name: "Shadcn/UI",
-      icon: <Palette className="h-5 w-5" />,
+      icon: (
+        <div className="h-6 w-6 bg-gradient-to-br from-slate-900 to-slate-700 rounded flex items-center justify-center text-white text-xs font-bold">
+          UI
+        </div>
+      ),
       category: "Frontend",
       level: 80,
+      description:
+        "Modern React component library built on Radix UI and Tailwind CSS for accessible and customizable interfaces.",
     },
     {
       name: "Figma",
-      icon: <Palette className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+          className="h-6 w-6"
+          alt="Figma"
+        />
+      ),
       category: "Design",
       level: 87,
+      description:
+        "Collaborative design tool for creating user interfaces, prototypes, and design systems with component libraries.",
     },
     {
       name: "Node.js",
-      icon: <Server className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+          className="h-6 w-6"
+          alt="Node.js"
+        />
+      ),
       category: "Backend",
       level: 85,
+      description:
+        "Server-side JavaScript runtime for building scalable network applications and RESTful APIs.",
     },
     {
       name: "Python",
-      icon: <Code2 className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+          className="h-6 w-6"
+          alt="Python"
+        />
+      ),
       category: "Backend",
       level: 90,
+      description:
+        "Versatile programming language for web development, data analysis, automation, and machine learning applications.",
     },
     {
       name: "Django",
-      icon: <Server className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+          className="h-6 w-6"
+          alt="Django"
+        />
+      ),
       category: "Backend",
       level: 88,
+      description:
+        "High-level Python web framework for rapid development with built-in admin, ORM, and security features.",
     },
     {
       name: "Flask",
-      icon: <Server className="h-5 w-5" />,
+      icon: <Code2 className="h-6 w-6 text-gray-300" />,
       category: "Backend",
       level: 82,
+      description:
+        "Lightweight Python web framework for building APIs and web applications with flexibility and simplicity.",
     },
     {
       name: "Go",
-      icon: <Code2 className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+          className="h-6 w-6"
+          alt="Go"
+        />
+      ),
       category: "Backend",
       level: 75,
+      description:
+        "Fast, statically typed programming language designed for building efficient, concurrent server applications.",
     },
     {
       name: "SQL",
-      icon: <Database className="h-5 w-5" />,
+      icon: <Database className="h-6 w-6 text-blue-400" />,
       category: "Database",
       level: 90,
+      description:
+        "Structured Query Language for managing relational databases, complex queries, and data optimization.",
     },
     {
       name: "MongoDB",
-      icon: <Database className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+          className="h-6 w-6"
+          alt="MongoDB"
+        />
+      ),
       category: "Database",
       level: 85,
+      description:
+        "NoSQL document database for flexible, scalable data storage with JSON-like documents and aggregation pipelines.",
     },
     {
       name: "PostgreSQL",
-      icon: <Database className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+          className="h-6 w-6"
+          alt="PostgreSQL"
+        />
+      ),
       category: "Database",
       level: 88,
+      description:
+        "Advanced open-source relational database with ACID compliance, JSON support, and powerful query capabilities.",
     },
     {
       name: "AWS",
-      icon: <Globe className="h-5 w-5" />,
+      icon: <Server className="h-6 w-6 text-orange-400" />,
       category: "Cloud Computing",
       level: 82,
+      description:
+        "Amazon Web Services cloud platform for scalable computing, storage, and deployment solutions.",
     },
     {
       name: "Google Cloud Platform",
-      icon: <Globe className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+          className="h-6 w-6"
+          alt="Google Cloud"
+        />
+      ),
       category: "Cloud Computing",
       level: 78,
+      description:
+        "Google's cloud computing services for machine learning, data analytics, and application deployment.",
     },
     {
       name: "Azure",
-      icon: <Globe className="h-5 w-5" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+          className="h-6 w-6"
+          alt="Azure"
+        />
+      ),
       category: "Cloud Computing",
       level: 75,
+      description:
+        "Microsoft's cloud platform offering computing, analytics, storage, and networking services.",
     },
     {
       name: "Alibaba Cloud",
-      icon: <Globe className="h-5 w-5" />,
+      icon: <Globe className="h-6 w-6 text-orange-400" />,
       category: "Cloud Computing",
       level: 70,
+      description:
+        "Chinese cloud computing platform providing elastic computing, database, and AI services globally.",
     },
   ];
 
@@ -224,7 +357,7 @@ const ProjectsPage = () => {
         <Button
           variant="outline"
           onClick={() => window.history.back()}
-          className="border-green-500/30 text-green-400 hover:bg-green-500/10 hover:border-green-400"
+          className="border-green-500/60 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/40 active:border-green-300 active:text-white active:shadow-lg active:shadow-green-500/30 transition-all duration-200"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
@@ -273,27 +406,49 @@ const ProjectsPage = () => {
               {skills
                 .filter((skill) => skill.category === category)
                 .map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="bg-black/40 backdrop-blur-md border border-green-500/20 rounded-lg p-4 hover:border-green-400/50 transition-all duration-300"
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="text-green-400">{skill.icon}</div>
-                      <span className="font-medium">{skill.name}</span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2">
-                      <motion.div
-                        className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ delay: 0.5 + index * 0.1, duration: 1 }}
-                      />
-                    </div>
-                    <span className="text-sm text-gray-400 mt-1">
-                      {skill.level}%
-                    </span>
-                  </motion.div>
+                  <TooltipProvider key={skill.name}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <motion.div
+                          whileHover={{ scale: 1.05, y: -5 }}
+                          className="bg-black/40 backdrop-blur-md border border-green-500/20 rounded-lg p-6 hover:border-green-400/50 transition-all duration-300 group cursor-pointer"
+                        >
+                          <div className="flex flex-col items-center text-center space-y-3">
+                            <div className="group-hover:scale-110 transition-transform duration-300">
+                              {skill.icon}
+                            </div>
+                            <h4 className="font-semibold text-white group-hover:text-green-300 transition-colors duration-300">
+                              {skill.name}
+                            </h4>
+                            <div className="flex items-center space-x-1">
+                              {[...Array(5)].map((_, i) => (
+                                <div
+                                  key={i}
+                                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                    i < Math.floor(skill.level / 20)
+                                      ? "bg-green-400 shadow-sm shadow-green-400/50"
+                                      : "bg-gray-600"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                            <span className="text-xs text-gray-400 font-medium">
+                              {skill.level >= 90
+                                ? "Expert"
+                                : skill.level >= 80
+                                  ? "Advanced"
+                                  : skill.level >= 70
+                                    ? "Intermediate"
+                                    : "Beginner"}
+                            </span>
+                          </div>
+                        </motion.div>
+                      </TooltipTrigger>
+                      <TooltipContent className="max-w-xs bg-black/90 border-green-500/30 text-green-100">
+                        <p className="text-sm">{skill.description}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ))}
             </div>
           </motion.div>
@@ -358,7 +513,7 @@ const ProjectsPage = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-green-500/30 text-green-400 hover:bg-green-500/10 w-full sm:w-auto"
+                        className="border-green-500/60 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/40 active:border-green-300 active:text-white active:shadow-lg active:shadow-green-500/30 transition-all duration-200 w-full sm:w-auto"
                       >
                         <Github className="h-4 w-4 mr-2" />
                         Code
@@ -367,7 +522,7 @@ const ProjectsPage = () => {
                     {project.liveUrl && (
                       <Button
                         size="sm"
-                        className="bg-green-500 text-black hover:bg-green-400 w-full sm:w-auto"
+                        className="bg-green-500 text-black hover:bg-green-400 hover:shadow-lg hover:shadow-green-500/25 active:bg-green-600 active:scale-95 transition-all duration-200 w-full sm:w-auto"
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Live Demo

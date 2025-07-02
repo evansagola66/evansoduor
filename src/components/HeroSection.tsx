@@ -14,15 +14,30 @@ const HeroSection = ({
   name = "Evans Oduor",
   title = "Product Manager & Software Developer",
   description = "Passionate about creating innovative digital solutions that solve real-world problems. Experienced in product management and software development with a focus on user-centered design and emerging technologies.",
-  imageUrl = "https://api.dicebear.com/7.x/avataaars/svg?seed=Evans",
+  imageUrl = "/evans-profile.jpg",
 }: HeroSectionProps) => {
   return (
     <div className="relative w-full min-h-[600px] flex items-center justify-center px-4 py-16 bg-black bg-opacity-80">
+      {/* Portfolio Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center z-10"
+      >
+        <h1 className="text-2xl md:text-3xl font-bold text-green-400 mb-2">
+          Digital Portfolio
+        </h1>
+        <p className="text-sm md:text-base text-gray-300">
+          Innovative Solutions • Modern Design • Future-Ready Technology
+        </p>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full max-w-5xl"
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="w-full max-w-5xl mt-16"
       >
         <Card className="bg-black/30 backdrop-blur-md border border-green-500/20 overflow-hidden shadow-lg shadow-green-500/10">
           <CardContent className="p-0">
@@ -61,12 +76,15 @@ const HeroSection = ({
                   <div className="flex flex-wrap gap-4">
                     <Button
                       variant="outline"
-                      className="border-green-500 text-green-400 hover:bg-green-500/20"
+                      className="border-green-500/60 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/40 active:border-green-300 active:text-white active:shadow-lg active:shadow-green-500/30 transition-all duration-200"
                       onClick={() => (window.location.href = "/projects")}
                     >
                       View Projects
                     </Button>
-                    <Button className="bg-green-500 text-black hover:bg-green-400">
+                    <Button
+                      className="bg-green-500 text-black hover:bg-green-400"
+                      onClick={() => (window.location.href = "/contact")}
+                    >
                       Contact Me
                     </Button>
                   </div>

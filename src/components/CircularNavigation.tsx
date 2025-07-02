@@ -37,14 +37,14 @@ const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
 
   const navItems: NavItem[] = [
     { icon: <Home className="h-5 w-5" />, label: "Home", href: "/" },
-    { icon: <User className="h-5 w-5" />, label: "About", href: "#about" },
+    { icon: <User className="h-5 w-5" />, label: "About", href: "/about" },
     {
       icon: <Briefcase className="h-5 w-5" />,
       label: "Projects",
       href: "/projects",
     },
-    { icon: <Code className="h-5 w-5" />, label: "Skills", href: "#skills" },
-    { icon: <Mail className="h-5 w-5" />, label: "Contact", href: "#contact" },
+    { icon: <Code className="h-5 w-5" />, label: "Skills", href: "/skills" },
+    { icon: <Mail className="h-5 w-5" />, label: "Contact", href: "/contact" },
   ];
 
   const toggleNavigation = () => {
@@ -92,11 +92,12 @@ const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
       <div className="relative w-[300px] h-[300px]">
         {/* Center button */}
         <motion.button
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-green-500/50 flex items-center justify-center z-10 text-green-500 hover:text-green-300 transition-colors duration-300"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-green-500/20 to-black/60 backdrop-blur-lg border-2 border-green-500/60 flex items-center justify-center z-10 text-green-400 hover:text-green-200 hover:border-green-300 hover:shadow-xl hover:shadow-green-500/40 hover:bg-gradient-to-br hover:from-green-500/30 hover:to-black/70 transition-all duration-300"
           onClick={toggleNavigation}
-          whileTap={{ scale: 0.9 }}
+          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.05 }}
         >
-          <span className="text-xl font-bold">EO</span>
+          <span className="text-2xl font-bold tracking-wider">EO</span>
         </motion.button>
 
         {/* Navigation items in a circle */}
@@ -113,17 +114,19 @@ const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
                 <TooltipTrigger asChild>
                   <a
                     href={item.href}
-                    className="absolute top-1/2 left-1/2 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-green-500/30 flex items-center justify-center text-green-400 hover:text-green-300 hover:border-green-400 transition-colors duration-300"
+                    className="absolute top-1/2 left-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-black/60 to-black/40 backdrop-blur-lg border-2 border-green-500/40 flex items-center justify-center text-green-400 hover:text-green-200 hover:border-green-300 hover:shadow-lg hover:shadow-green-500/30 hover:bg-gradient-to-br hover:from-green-500/20 hover:to-black/60 transition-all duration-300 group"
                     style={{
                       transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
                       opacity: isOpen ? 1 : 0,
                     }}
                   >
-                    {item.icon}
+                    <div className="group-hover:scale-110 transition-transform duration-300">
+                      {item.icon}
+                    </div>
                   </a>
                 </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.label}</p>
+                <TooltipContent className="bg-black/90 border-green-500/50 text-green-100">
+                  <p className="font-medium">{item.label}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

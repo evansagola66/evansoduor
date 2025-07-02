@@ -17,6 +17,14 @@ const Home = () => {
 
       {/* Navigation */}
       <CircularNavigation />
+
+      {/* Footer */}
+      <footer className="relative z-10 mt-16 pt-8 border-t border-green-500/20 text-center bg-black/20 backdrop-blur-sm">
+        <p className="text-sm text-gray-400 pb-4">
+          Designed for the future by{" "}
+          <span className="text-green-400">Stakweb Limited</span>
+        </p>
+      </footer>
     </div>
   );
 };
