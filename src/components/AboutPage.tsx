@@ -47,10 +47,10 @@ const AboutPage = () => {
           <Button
             variant="outline"
             onClick={() => window.history.back()}
-            className="border-green-500/30 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/30 active:scale-95 transition-all duration-200"
+            className="border-green-500/30 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/30 active:scale-95 transition-all duration-200 md:px-4 px-2 md:py-2 py-1.5"
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
+            <ArrowLeft className="h-4 w-4 md:mr-2" />
+            <span className="hidden md:inline">Back</span>
           </Button>
         </motion.div>
 
@@ -61,10 +61,10 @@ const AboutPage = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             About <span className="text-green-400">Evans Oduor</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Bridging the gap between technology and business through innovative
             product management
           </p>

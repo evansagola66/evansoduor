@@ -357,10 +357,10 @@ const ProjectsPage = () => {
         <Button
           variant="outline"
           onClick={() => window.history.back()}
-          className="border-green-500/60 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/40 active:border-green-300 active:text-white active:shadow-lg active:shadow-green-500/30 transition-all duration-200"
+          className="border-green-500/60 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/40 active:border-green-300 active:text-white active:shadow-lg active:shadow-green-500/30 transition-all duration-200 md:px-4 px-2 md:py-2 py-1.5"
         >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back
+          <ArrowLeft className="h-4 w-4 md:mr-2" />
+          <span className="hidden md:inline">Back</span>
         </Button>
       </motion.div>
       {/* Header Section */}
@@ -370,11 +370,11 @@ const ProjectsPage = () => {
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
           <span className="text-green-400">Projects</span> &{" "}
           <span className="text-green-400">Expertise</span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+        <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
           Showcasing innovative solutions across multiple technologies and
           frameworks
         </p>
@@ -387,7 +387,7 @@ const ProjectsPage = () => {
         transition={{ delay: 0.2, duration: 0.8 }}
         className="mb-16"
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-green-400">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-center text-green-400">
           Technical Expertise
         </h2>
 
@@ -399,7 +399,7 @@ const ProjectsPage = () => {
             transition={{ delay: 0.1 * categoryIndex, duration: 0.6 }}
             className="mb-8"
           >
-            <h3 className="text-lg md:text-xl font-semibold mb-4 text-green-300">
+            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-4 text-green-300">
               {category}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -461,7 +461,7 @@ const ProjectsPage = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-green-400">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-center text-green-400">
           Featured Projects
         </h2>
 

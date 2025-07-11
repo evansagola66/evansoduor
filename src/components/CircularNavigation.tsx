@@ -56,22 +56,26 @@ const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
   if (isMobile) {
     return (
       <nav
-        className={`fixed top-0 left-0 w-full z-50 px-4 py-3 backdrop-blur-md bg-black/30 border-b border-green-500/20 ${className}`}
+        className={`fixed top-0 left-0 w-full z-50 px-3 py-2.5 backdrop-blur-md bg-black/40 border-b border-green-500/20 ${className}`}
       >
         <div className="flex justify-between items-center">
-          <div className="text-green-500 font-bold text-lg">Evans Oduor</div>
-          <div className="flex space-x-4">
+          <div className="text-green-500 font-bold text-base sm:text-lg">
+            Evans Oduor
+          </div>
+          <div className="flex space-x-3 sm:space-x-4">
             {navItems.map((item, index) => (
               <TooltipProvider key={index}>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <a
                       href={item.href}
-                      className={`text-green-400 hover:text-green-300 transition-colors duration-300 ${
-                        location.pathname === item.href ? "text-green-200" : ""
+                      className={`text-green-400 hover:text-green-300 transition-colors duration-300 p-1.5 rounded-md hover:bg-green-500/10 ${
+                        location.pathname === item.href
+                          ? "text-green-200 bg-green-500/20"
+                          : ""
                       }`}
                     >
-                      {item.icon}
+                      <div className="w-5 h-5">{item.icon}</div>
                     </a>
                   </TooltipTrigger>
                   <TooltipContent>
