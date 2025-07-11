@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home, User, Briefcase, Code, Mail } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import {
   Tooltip,
   TooltipContent,
@@ -21,6 +22,7 @@ interface CircularNavigationProps {
 const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -65,7 +67,9 @@ const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
                   <TooltipTrigger asChild>
                     <a
                       href={item.href}
-                      className="text-green-400 hover:text-green-300 transition-colors duration-300"
+                      className={`text-green-400 hover:text-green-300 transition-colors duration-300 ${
+                        location.pathname === item.href ? "text-green-200" : ""
+                      }`}
                     >
                       {item.icon}
                     </a>
