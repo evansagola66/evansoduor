@@ -31,8 +31,7 @@ const MatrixBackground = ({
     window.addEventListener("resize", resizeCanvas);
 
     // Matrix characters
-    const chars =
-      "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const chars = "0101010101010";
 
     // Create drops
     const fontSize = 16;

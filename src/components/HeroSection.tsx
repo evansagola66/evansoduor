@@ -25,10 +25,10 @@ const HeroSection = ({
         transition={{ duration: 0.6 }}
         className="absolute top-4 md:top-8 left-0 right-0 text-center z-10 w-full px-2 sm:px-4"
       >
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-green-400 mb-1 sm:mb-2 text-center leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-green-400 mb-2 sm:mb-3 text-center leading-tight">
           Digital Portfolio
         </h1>
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto text-center leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto text-center leading-relaxed">
           Innovative Solutions • Modern Design • Future-Ready Technology
         </p>
       </motion.div>
@@ -63,26 +63,26 @@ const HeroSection = ({
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.8 }}
                 >
-                  <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 text-white tracking-tight leading-tight">
+                  <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 text-white tracking-tight leading-tight">
                     <span className="text-green-400">{name}</span>
                   </h1>
-                  <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl font-medium mb-3 sm:mb-4 md:mb-6 text-green-300 leading-snug">
+                  <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-4 sm:mb-5 md:mb-7 text-green-300 leading-snug">
                     {title}
                   </h2>
-                  <p className="text-xs xs:text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-300 mb-5 sm:mb-7 md:mb-9 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     {description}
                   </p>
 
                   <div className="flex flex-col xs:flex-row justify-center lg:justify-start flex-wrap gap-2 xs:gap-3 md:gap-4">
                     <Button
                       variant="outline"
-                      className="border-green-500/60 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/40 active:border-green-300 active:text-white active:shadow-lg active:shadow-green-500/30 transition-all duration-200 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-2 xs:py-2.5"
+                      className="border-green-500/60 text-green-400 hover:bg-green-500/20 hover:border-green-400 hover:text-green-300 active:bg-green-500/40 active:border-green-300 active:text-white active:shadow-lg active:shadow-green-500/30 transition-all duration-200 text-sm xs:text-base md:text-lg px-4 xs:px-5 py-2.5 xs:py-3"
                       onClick={() => (window.location.href = "/projects")}
                     >
                       View Projects
                     </Button>
                     <Button
-                      className="bg-green-500 text-black hover:bg-green-400 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-2 xs:py-2.5"
+                      className="bg-green-500 text-black hover:bg-green-400 text-sm xs:text-base md:text-lg px-4 xs:px-5 py-2.5 xs:py-3"
                       onClick={() => (window.location.href = "/contact")}
                     >
                       Contact Me

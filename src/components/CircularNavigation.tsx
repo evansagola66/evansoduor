@@ -21,7 +21,7 @@ interface CircularNavigationProps {
 
 const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -48,10 +48,6 @@ const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
     { icon: <Code className="h-5 w-5" />, label: "Skills", href: "/skills" },
     { icon: <Mail className="h-5 w-5" />, label: "Contact", href: "/contact" },
   ];
-
-  const toggleNavigation = () => {
-    setIsOpen(!isOpen);
-  };
 
   if (isMobile) {
     return (
@@ -98,16 +94,6 @@ const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
       transition={{ duration: 0.5 }}
     >
       <div className="relative w-[300px] h-[300px]">
-        {/* Center button */}
-        <motion.button
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-green-500/20 to-black/60 backdrop-blur-lg border-2 border-green-500/60 flex items-center justify-center z-10 text-green-400 hover:text-green-200 hover:border-green-300 hover:shadow-xl hover:shadow-green-500/40 hover:bg-gradient-to-br hover:from-green-500/30 hover:to-black/70 transition-all duration-300"
-          onClick={toggleNavigation}
-          whileTap={{ scale: 0.95 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <span className="text-2xl font-bold tracking-wider">EO</span>
-        </motion.button>
-
         {/* Navigation items in a circle */}
         {navItems.map((item, index) => {
           // Calculate position in the circle
@@ -125,7 +111,7 @@ const CircularNavigation = ({ className = "" }: CircularNavigationProps) => {
                     className="absolute top-1/2 left-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-black/60 to-black/40 backdrop-blur-lg border-2 border-green-500/40 flex items-center justify-center text-green-400 hover:text-green-200 hover:border-green-300 hover:shadow-lg hover:shadow-green-500/30 hover:bg-gradient-to-br hover:from-green-500/20 hover:to-black/60 transition-all duration-300 group"
                     style={{
                       transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                      opacity: isOpen ? 1 : 0,
+                      opacity: 1,
                     }}
                   >
                     <div className="group-hover:scale-110 transition-transform duration-300">
