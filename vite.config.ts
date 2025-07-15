@@ -52,21 +52,6 @@ export default defineConfig({
       },
     },
     minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: [
-          "console.log",
-          "console.info",
-          "console.debug",
-          "console.warn",
-        ],
-      },
-      mangle: {
-        safari10: true,
-      },
-    },
     cssMinify: "lightningcss",
     sourcemap: false,
     target: "esnext",

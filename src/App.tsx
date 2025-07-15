@@ -33,7 +33,6 @@ function App() {
     <Suspense fallback={<p>Loading...</p>}>
       <>
         <CircularNavigation />
-        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
@@ -44,6 +43,7 @@ function App() {
             <Route path="/tempobook/*" />
           )}
         </Routes>
+        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
 
         {/* Scroll to Top Button */}
         {showScrollTop && (
