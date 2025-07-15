@@ -282,6 +282,58 @@ const ProjectsPage = () => {
       description:
         "Chinese cloud computing platform providing elastic computing, database, and AI services globally.",
     },
+    {
+      name: "Redis",
+      icon: <Database className="h-6 w-6 text-red-400" />,
+      category: "Database",
+      level: 85,
+      description:
+        "In-memory data structure store used as database, cache, and message broker with high performance.",
+    },
+    {
+      name: "Neon",
+      icon: <Database className="h-6 w-6 text-green-400" />,
+      category: "Database",
+      level: 75,
+      description:
+        "Serverless PostgreSQL database with branching, instant provisioning, and automatic scaling.",
+    },
+    {
+      name: "Firebase",
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+          className="h-6 w-6"
+          alt="Firebase"
+        />
+      ),
+      category: "Database",
+      level: 88,
+      description:
+        "Google's platform for mobile and web applications with real-time database, authentication, and hosting.",
+    },
+    {
+      name: "Supabase",
+      icon: <Database className="h-6 w-6 text-green-400" />,
+      category: "Database",
+      level: 82,
+      description:
+        "Open-source Firebase alternative with PostgreSQL database, real-time subscriptions, and authentication.",
+    },
+    {
+      name: "Oracle",
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
+          className="h-6 w-6"
+          alt="Oracle"
+        />
+      ),
+      category: "Database",
+      level: 78,
+      description:
+        "Enterprise-grade relational database management system with advanced security and performance features.",
+    },
   ];
 
   const projects: Project[] = [
